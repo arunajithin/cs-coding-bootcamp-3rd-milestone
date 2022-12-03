@@ -1,13 +1,10 @@
 const mongoose = require('mongoose');
 
 //Schema
+
 const ProductSchema = new mongoose.Schema(
     {
         productName: {
-            type: String,
-            required: true
-        },
-        productSku: {
             type: String,
             required: true
         },
@@ -15,29 +12,48 @@ const ProductSchema = new mongoose.Schema(
             type: String,
             required: false
         },
-        productCategory: {
-            type: String,
-            required: true
-        },
         productImage: {
             type: String,
             required: true
         },
-        brandName: {
-            type: String,
-            required: false
+        brand: {
+            type:String,
+            required: true,
+        },
+        sku:{
+            type:String,
+            required: true,
         },
         price: {
-            type: Number,
-            required: true
+            type:Number,
+            required: true,
+        },
+        category: {
+            type:String,
+            required: true,
+        },
+        origin: {
+            type:String,
+            required: false,
+        },
+        dietaryNeeds: {
+            type:String,
+            required: true,
+        },
+        storageReq: {
+            type:String,
+            required: true,
+        },
+        shelfLife: {
+            type:Number,
+            required: true,
         },
         quantity: {
-            type: Number,
-            required: true
+            type:Number,
+            required: true,
         }
     }
-);
-
+)
 
 //Model
 const ProductModel = mongoose.model('products', ProductSchema);
