@@ -32,25 +32,6 @@ router.post('/add',
     }
 );
 
-router.post('/list',
-    function(req, res) {
-        ProductModel
-        .find(req.query)
-        .then(
-            function(dbDocument){
-                res.json(dbDocument)
-            }
-        )
-        .catch(
-            function(error){
-                console.log('/list error', error);
-
-                res.send('An error occured');
-            }
-        )
-    }
-);
-
 module.exports = router;
 
 
