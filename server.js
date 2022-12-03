@@ -48,9 +48,9 @@ server.get(
 );
 
 server.get(
-    '/contact',
+    '/login',
     function(req, res){
-        res.send("<h1>Contact Us</h1>");
+        res.send("<h1>Login</h1>");
     }
 );
 
