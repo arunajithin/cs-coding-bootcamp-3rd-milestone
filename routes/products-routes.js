@@ -8,13 +8,17 @@ router.post('/add',
     function (req, res) {
         let newDocument = {
             "sku": req.body.sku,
+            "productName": req.body.productName,
+            "productDescription": req.body.productDescription,
+            "productImage": req.body.productImage,
             "brand": req.body.brand,
             "price": req.body.price,
             "category": req.body.category,
             "origin": req.body.origin,
             "dietaryNeeds": req.body.dietaryNeeds,
             "storageReq": req.body.storageReq,
-            "shelfLife": req.body.shelfLife
+            "shelfLife": req.body.shelfLife,
+            "quantity": req.body.quantity
         }
 
         ProductModel
