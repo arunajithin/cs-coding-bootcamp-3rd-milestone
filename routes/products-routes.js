@@ -64,8 +64,17 @@ function(req,res){
 
     let updates = {}
     
+     if (req.body.productName){ 
+        updates['productName'] = req.body.productName; 
+     };
+     if (req.body.productDescription){ 
+        updates['productDescription'] = req.body.productDescription; 
+      };
+     if (req.body.productImage){ 
+        updates['productImage'] = req.body.productImage; 
+      };
     if (req.body.brand){ 
-        updates['brand'] = req.body.brand 
+        updates['brand'] = req.body.brand; 
     };
     if (req.body.price) {
         updates['price'] = req.body.price;
@@ -107,7 +116,7 @@ function(req,res){
     )
     .catch(
         function(error) {
-            console.log('/users/update error',error);
+            console.log('/products/update error',error);
             res.send('An error ocured');
         }
     )
