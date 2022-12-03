@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
+//Schema
 const UserSchema = new mongoose.Schema(
     {
-        fitstName: {
+        firstName: {
             type:String,
             required: true,
         },
@@ -38,6 +39,8 @@ const UserSchema = new mongoose.Schema(
     }
 );
 
+//Model
 const UserModel = mongoose.model('users', UserSchema);
 
+// Export the model
 module.exports = UserModel;
