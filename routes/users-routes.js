@@ -7,7 +7,7 @@ const UserModel = require('../models/UserModel.js');
 router.post('/registration',
     function (req, res) {
         let newDocument = {
-            "fristName": req.body.fristName,
+            "firstName": req.body.firstName,
             "lastName": req.body.lastName,
             "email": req.body.email,
             "password": req.body.password,
