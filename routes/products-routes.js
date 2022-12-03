@@ -7,11 +7,11 @@ const ProductModel = require('../models/ProductModel');
 router.post('/add',
     function (req, res) {
         let newDocument = {
+            "sku": req.body.sku,
             "productName": req.body.productName,
             "productDescription": req.body.productDescription,
             "productImage": req.body.productImage,
             "brand": req.body.brand,
-            "sku": req.body.sku,
             "price": req.body.price,
             "category": req.body.category,
             "origin": req.body.origin,
@@ -59,7 +59,60 @@ router.post('/list',
 
 // products/update
 router.put('/update',
+
+function(req,res){
+
+    let updates = {}
     
+    if (req.body.brand){ 
+        updates['brand'] = req.body.brand 
+    };
+    if (req.body.price) {
+        updates['price'] = req.body.price;
+    };
+    if (req.body.category) {
+        updates['category'] = req.body.category;
+    };
+    if (req.body.origin) {
+        updates['origin'] = req.body.origin;
+    };
+    if (req.body.dietaryNeeds) {
+        updates['dietaryNeeds'] = req.body.dietaryNeeds;
+    };
+    if (req.body.storageReq) {
+        updates['storageReq'] = req.body.storageReq;
+    };
+    if (req.body.shelfLife) {
+        updates['shelfLife'] = req.body.shelfLife;
+    };
+
+
+    UserModel
+    .findOneAndUpdate(
+        {
+            "sku": req.body.sku
+        },
+        {
+            $set: updates
+        },
+        {
+
+            new: true
+        }
+    )
+    .then(
+        function(dbDocument) {
+            res.json(dbDocument)
+        }
+    )
+    .catch(
+        function(error) {
+            console.log('/users/update error',error);
+            res.send('An error ocured');
+        }
+    )
+    }  
+
 );
 
 module.exports = router;
